@@ -1,3 +1,8 @@
+import printBook from './modules/printBook.js';
+import saveToLocal from './modules/LocalStorageSave.js';
+import deleteFromDom from './modules/DeleteDOMandStorage.js';
+import { DateTime } from './modules/luxon.js';
+
 const addBtn = document.querySelector('.addButton');
 const bookTitle = document.querySelector('.name');
 const bookAuthor = document.querySelector('.author');
@@ -8,20 +13,14 @@ const contact = document.getElementById('contact');
 const bookListSection = document.getElementsByClassName('book-list');
 const addBookSection = document.getElementsByClassName('add-book');
 const contactList = document.getElementsByClassName('contact');
+const time = document.querySelector('.time');
 
-import {printBook} from "./modules/printBook.js";
-import {saveToLocal} from "./modules/LocalStorageSave.js";
-import {deleteFromDom} from "./modules/DeleteDOMandStorage.js";
-
-
-  
 class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   let arrBooks;
@@ -52,6 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
   bookContainer.addEventListener('click', (e) => {
     deleteFromDom(e);
   });
+  setInterval(() => {
+    const date = DateTime.now();
+    time.innerHTML = date.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+  }, 1000);
 });
 
 addBtn.addEventListener('click', () => {

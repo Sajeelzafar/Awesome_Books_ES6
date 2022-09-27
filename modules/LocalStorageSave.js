@@ -1,4 +1,4 @@
-export function saveToLocal(book) {
+export const saveToLocal = (book) => {
     let arrBooks;
 
     if (localStorage.getItem('books') === null) {

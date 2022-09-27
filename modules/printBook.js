@@ -1,7 +1,7 @@
 const bookContainer = document.querySelector('.bookContainer');
 
 
-export function printBook(book) {
+export const printBook = (book) => {
     const div = document.createElement('div');
     div.classList.add('bookBox');
     bookContainer.appendChild(div);

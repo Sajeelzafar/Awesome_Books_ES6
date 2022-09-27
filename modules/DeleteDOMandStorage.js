@@ -1,4 +1,4 @@
-function deleteInStorage (book) {
+const deleteInStorage = (book) => {
   let arrBooks;
 
   if (localStorage.getItem('books') === null) {
@@ -12,7 +12,7 @@ function deleteInStorage (book) {
   localStorage.setItem('books', JSON.stringify(arrBooks));
 }
 
-export function deleteFromDom(e) {
+export const deleteFromDom = (e) => {
   const item = e.target;
   const parent = item.parentElement;
 

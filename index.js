@@ -1,3 +1,8 @@
+import printBook from './modules/printBook.js';
+import saveToLocal from './modules/LocalStorageSave.js';
+import deleteFromDom from './modules/DeleteDOMandStorage.js';
+import { DateTime } from './modules/luxon.js';
+
 const addBtn = document.querySelector('.addButton');
 const bookTitle = document.querySelector('.name');
 const bookAuthor = document.querySelector('.author');
@@ -10,18 +15,12 @@ const addBookSection = document.getElementsByClassName('add-book');
 const contactList = document.getElementsByClassName('contact');
 const time = document.querySelector('.time');
 
-import {printBook} from "./modules/printBook.js";
-import {saveToLocal} from "./modules/LocalStorageSave.js";
-import {deleteFromDom} from "./modules/DeleteDOMandStorage.js";
-import { DateTime } from "./modules/luxon.js";
-  
 class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
   }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   let arrBooks;
@@ -53,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     deleteFromDom(e);
   });
   setInterval(() => {
-    const time = document.querySelector('.time');
     const date = DateTime.now();
     time.innerHTML = date.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
   }, 1000);
@@ -99,6 +97,3 @@ contact.addEventListener('click', () => {
     contactList[i].style.display = 'flex';
   }
 });
-
-
-

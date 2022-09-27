@@ -10,9 +10,9 @@ const deleteInStorage = (book) => {
   const spliceBook = arrBooks.map((element) => element.title).indexOf(elementText);
   arrBooks.splice(spliceBook, 1);
   localStorage.setItem('books', JSON.stringify(arrBooks));
-}
+};
 
-export const deleteFromDom = (e) => {
+const deleteFromDom = (e) => {
   const item = e.target;
   const parent = item.parentElement;
 
@@ -20,4 +20,6 @@ export const deleteFromDom = (e) => {
     parent.remove();
     deleteInStorage(parent);
   }
-}
+};
+
+export default deleteFromDom;

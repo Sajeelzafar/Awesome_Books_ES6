@@ -1,0 +1,343 @@
+/* ........... Css Resets .......... */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+body {
+  line-height: 1.5rem;
+  position: relative;
+  z-index: 99;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)),
+    url(./images/background.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 110ms ease-in-out;
+}
+
+h1 {
+  color: var(--black);
+  font-size: 2rem;
+}
+
+img,
+svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* variables */
+
+:root {
+  --black: rgb(2, 2, 2);
+}
+
+/* .......... Reusable classes and other components ........... */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-jc-sb {
+  justify-content: space-between;
+}
+
+.flex-al-c {
+  align-items: center;
+}
+
+.limit {
+  padding-inline: 8%;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: var(--black);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+}
+
+.content {
+  padding: 2rem;
+  min-height: 50%;
+  width: 70%;
+  gap: 1rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.43);
+  backdrop-filter: blur(10px);
+  box-shadow: 4px 10px 10px rgba(0, 0, 0, 0.251), -4px 10px 10px rgba(0, 0, 0, 0.464);
+}
+
+/* ............... Header ............... */
+
+.header {
+  background-color: rgba(255, 255, 255, 0.43);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 4rem;
+  overflow: hidden;
+  box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.5);
+  font-size: 1.49rem;
+}
+
+.logo {
+  gap: 0.2rem;
+}
+
+.logo:hover {
+  color: var(--black);
+}
+
+.logo-text span {
+  color: var(--black);
+}
+
+.logo-text,
+.logo-text span {
+  transition: all 30ms ease-in-out !important;
+}
+
+.logo-img {
+  height: 2.5rem;
+  object-fit: contain;
+}
+
+.nav-links {
+  gap: 2rem;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--black);
+}
+
+/* .............. Main Content .............. */
+
+main {
+  width: 100%;
+  min-height: calc(100vh - 4rem);
+}
+
+/* ............ Book-list Section......... */
+
+.book-list {
+  border: 1px solid black;
+  display: flex;
+}
+
+.list-heading {
+  margin-bottom: 3rem;
+}
+
+.bookContainer {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.bookText,
+.bookBox {
+  background-color: rgb(191, 119, 43);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  gap: 0.5rem;
+  padding-inline-start: 0.5rem;
+}
+
+.remove-btn {
+  background-color: var(--black);
+  color: #fff;
+}
+
+.remove-btn:hover {
+  background-color: rgb(255, 255, 255);
+  color: var(--black);
+}
+
+/* ............ Add-Book Section......... */
+
+.add-book {
+  display: none;
+}
+
+.form {
+  width: 100%;
+  gap: 0.5rem;
+  position: relative !important;
+}
+
+.form input[type="text"] {
+  border: none;
+  padding: 1rem;
+  background-color: black;
+  color: #fff;
+  width: 90%;
+  font-size: 1.1rem;
+  margin: auto;
+  transition: width 200ms ease-in-out;
+  border-radius: 5px;
+}
+
+.form input[type="text"]::placeholder {
+  transition: left 900ms ease-in-out;
+}
+
+.form input[type="text"]:focus::placeholder {
+  position: absolute;
+  left: 50%;
+  translate: -50%;
+}
+
+.form input[type="text"]:focus {
+  width: 100%;
+  outline: 2px solid rgb(191, 139, 43);
+}
+
+.error {
+  display: none;
+  background-color: rgb(235, 163, 163);
+  color: rgb(53, 1, 1);
+  width: 90%;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+.addButton {
+  margin-inline: auto;
+  margin-top: 1rem;
+  transition: all 150ms ease-in-out;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.504);
+  border-radius: 5px;
+}
+
+.addButton:hover {
+  background-color: rgb(191, 119, 43);
+}
+
+.title h1 {
+  margin-bottom: 3rem;
+}
+
+/* ................. Contact Section ..................... */
+
+.contact {
+  position: relative;
+  display: none;
+  height: 100%;
+  color: var(--black);
+  background-color: rgba(255, 255, 255, 0.63);
+}
+
+.time {
+  position: fixed;
+  top: 10%;
+  font-size: 1.2rem;
+  right: 8%;
+}
+
+.heading {
+  padding-right: 5%;
+  line-height: 3rem;
+}
+
+.contact-heading {
+  font-size: 3rem;
+}
+
+.contactInformation {
+  padding: 5%;
+  font-size: 1.2rem;
+}
+
+.contactlist {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10%;
+  width: 100%;
+  padding-top: 5%;
+  line-height: 2rem;
+  list-style: circle;
+}
+
+.contactlistitem span {
+  font-weight: 500;
+}
+
+.contactlistitem a:hover {
+  color: rgb(206, 106, 0);
+}
+
+.logo:hover .logo-text span {
+  color: #fff;
+}
+
+.Emails {
+  padding-inline: 0.6rem;
+  outline: 2px dotted black;
+}
